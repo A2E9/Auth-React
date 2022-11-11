@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import React from 'react'
 
 
 export default function Home() {
@@ -8,11 +9,11 @@ export default function Home() {
 
       <main className="center">
         <h1 className="title">
-          Welcome to <a href="https://valentyn.live">Me!</a>
+          Welcome to <a href="https://valentyn.live">__!</a>
         </h1>
 
         <p className="description">
-          Visit my cool site - - - {' '}
+          Visit site - - - {' '}
           <code className="code">
           <a href="https://valentyn.live">HERE</a>
           </code>

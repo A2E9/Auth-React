@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import  altogic  from "../helpers/client";
+import altogic from "../helpers/client";
 
 const Context = createContext({
   user: null,
@@ -9,49 +9,18 @@ const Context = createContext({
 });
 
 export const StateContext = ({ children }) => {
-  // const [user, setUser] = useState(null);
-  // const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   const user = JSON.parse(localStorage.getItem("user"));
-  //   if (user) {
-  //     setUser(user);
-  //   }
-  //   setLoading(false);
-  // }, []);
-
-  // const login = (user) => {
-  //   setUser(user);
-  //   localStorage.setItem("user", JSON.stringify(user));
-  //   toast.success("Login success");
-  // };
-
-  // const logout = () => {
-  //   setUser(null);
-  //   localStorage.removeItem("user");
-  //   toast.success("Logout success");
-  // };
-
-  // return (
-  //   <Context.Provider value={{ user, setUser, login, logout }}>
-  //     {children}
-  //   </Context.Provider>
-  // );
-
   const [isAuth, setIsAuth] = useState(false);
   const [session, setSession] = useState();
   const [user, setUser] = useState();
   const [allSessionsList, setAllSessionsList] = useState(null);
 
   useEffect(() => {
-    // Get the session and user from local storage.
     const session = altogic.auth.getSession();
     const user = altogic.auth.getUser();
     setSession(session);
     setUser(user);
     if (user && session) {
-      //If there is a user, set the session and user in context.
-      getAllSessionsFromAltogic(); //Get all sessions of the user.
+      getAllSessionsFromAltogic();
     } else {
       altogic.auth.clearLocalData();
     }
@@ -62,6 +31,13 @@ export const StateContext = ({ children }) => {
     setUser(newUser);
     altogic.auth.setSession(newSession);
     altogic.auth.setUser(newUser);
+  }
+
+  function signOut() {
+    altogic.auth.signOutAll();
+    setIsAuth(false);
+    setUser([]);
+
   }
 
   async function getAllSessionsFromAltogic() {
@@ -75,6 +51,7 @@ export const StateContext = ({ children }) => {
 
   async function profilePicChanged(profilePictureUrl, deleted) {
     let result;
+    setIsAuth(true);
     if (!deleted) {
       //Change the profile picture url.
       result = await altogic.db.model("users").object(user._id).update({
@@ -90,22 +67,24 @@ export const StateContext = ({ children }) => {
     authStateChanged(session, result.data);
   }
 
-  const value = {
-    session,
-    user,
-    allSessionsList,
-    authStateChanged,
-    getAllSessionsFromAltogic,
-    profilePicChanged,
-    setAllSessionsList,
-    setIsAuth,
-  };
-
-  return <Context.Provider value={{value}}>
-    {children}
-  </Context.Provider> 
+  return (
+    <Context.Provider
+      value={{
+        session,
+        user,
+        isAuth,
+        allSessionsList,
+        authStateChanged,
+        getAllSessionsFromAltogic,
+        profilePicChanged,
+        setAllSessionsList,
+        setIsAuth,
+        signOut
+      }}
+    >
+      {children}
+    </Context.Provider>
+  );
 };
 
-export const useAuth = () => {
-  return useContext(Context);
-};
+export const useAuth = () => useContext(Context);
