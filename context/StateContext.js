@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import altogic from "../helpers/client";
+import { useRouter } from 'next/router'
 
 const Context = createContext({
   user: null,
@@ -13,6 +14,9 @@ export const StateContext = ({ children }) => {
   const [session, setSession] = useState();
   const [user, setUser] = useState();
   const [allSessionsList, setAllSessionsList] = useState(null);
+
+  const router = useRouter();
+
 
   useEffect(() => {
     const session = altogic.auth.getSession();
@@ -33,11 +37,11 @@ export const StateContext = ({ children }) => {
     altogic.auth.setUser(newUser);
   }
 
-  function signOut() {
-    altogic.auth.signOutAll();
+  async function signOut() {
+    await altogic.auth.signOut();
     setIsAuth(false);
     setUser([]);
-
+    router.replace("/");
   }
 
   async function getAllSessionsFromAltogic() {

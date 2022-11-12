@@ -36,7 +36,6 @@ const Sign_in = (props) => {
     let email_username = email_usernameRef.current.value;
     let password = passwordRef.current.value;
 
-    console.log(email_username);
     let response = await altogic.auth
       .signInWithEmail(email_username, password)
       .then((userI) => {
@@ -47,6 +46,7 @@ const Sign_in = (props) => {
           router.replace("/home");
         }
       });
+    console.log(isAuth);
     console.log(user);
 
     // altogic.auth.signOut().then((value) => {console.log(value)});
