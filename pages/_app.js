@@ -1,7 +1,7 @@
 import "../scss/css/style.css";
 import { StateContext } from "../context/StateContext";
 import Layout from "../components/layout/Layout";
-import "../../node_modules/primeflex/primeflex.css";
+// import "../../node_modules/primeflex/primeflex.css";
 
 import { Toaster } from "react-hot-toast";
 
