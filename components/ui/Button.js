@@ -31,7 +31,7 @@ const CustButton = (props) => {
         // }}
       >
         {props.loading ? (
-          <FontAwesomeIcon icon={faSpinner} spin />
+          <FontAwesomeIcon icon={faSpinner} spin height={'20px'} />
         ) : (
           props.buttonValue
         )}

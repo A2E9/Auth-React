@@ -2,10 +2,10 @@ import React from 'react'
 import Sign_in from '../../components/user/auth/Sign-in'
 
 
-const login = () => {
+const Login = () => {
   return (
     <Sign_in />
   )
 }
 
-export default login
+export default Login

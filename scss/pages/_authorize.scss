@@ -35,7 +35,7 @@
     font-size: 20px;
     font-weight: bold;
     border-radius: 20px;
-
+    padding: 5px 10px;
     
 
     &:hover {
@@ -49,6 +49,8 @@
       background-color: darken($secondary-color, 20%);
     }
   }
+
+
   h2 {
     font-size: 1.5rem;
     // font-weight: 400;

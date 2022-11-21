@@ -22,9 +22,7 @@ const Sign_in = (props) => {
 
   const router = useRouter();
 
-  const email_usernameRef = useRef();
   const emailRef = useRef();
-  const usernameRef = useRef();
   const passwordRef = useRef();
 
   const [loading, setLoading] = useState(false);
@@ -33,7 +31,7 @@ const Sign_in = (props) => {
     e.preventDefault();
 
     setLoading(true);
-    let email_username = email_usernameRef.current.value;
+    let email_username = emailRef.current.value;
     let password = passwordRef.current.value;
 
     let response = await altogic.auth
@@ -69,7 +67,7 @@ const Sign_in = (props) => {
                   type="text"
                   name="emailUser"
                   id="emailUser"
-                  ref={email_usernameRef}
+                  ref={emailRef}
                 />
               </div>
 
