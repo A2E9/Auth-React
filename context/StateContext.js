@@ -14,12 +14,14 @@ export const StateContext = ({ children }) => {
   const [session, setSession] = useState();
   const [user, setUser] = useState();
   const [allSessionsList, setAllSessionsList] = useState(null);
+  // const [authState, setAuthState] = useState({ token: "" });
 
   const router = useRouter();
 
   useEffect(() => {
     const session = altogic.auth.getSession();
     const user = altogic.auth.getUser();
+    
     setSession(session);
     setUser(user);
     if (user && session) {
@@ -38,8 +40,8 @@ export const StateContext = ({ children }) => {
 
   async function signOut() {
     await altogic.auth.signOut();
+    setUser();
     setIsAuth(false);
-    setUser([]);
     router.replace("/");
   }
 

@@ -46,7 +46,7 @@ const Sign_up = () => {
     }
 
     let user = await altogic.auth
-      .signUpWithEmail(email, password, username)
+      .signUpWithEmail(email, password, username )
       .then((response) => {
         if (response.user) {
           toast.success("Check your email to verify your account.");
@@ -237,7 +237,7 @@ setMessage("");
 
               <div className="submit">
                 <CustButton
-                  className="btn pl-5 pr-5"
+                  className="bttn pl-5 pr-5"
                   loading={loading}
                   buttonValue="Sign Up"
                   type="submit"

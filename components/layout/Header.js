@@ -4,7 +4,7 @@ import CustButton from "../ui/Button";
 import { useAuth } from "../../context/StateContext";
 import altogic from "../../helpers/client";
 function Header() {
-  const {user, isAuth,setIsAuth, signOut} = useAuth();
+  const { user, isAuth, setIsAuth, signOut } = useAuth();
 
   return (
     <section id="header">
@@ -15,31 +15,44 @@ function Header() {
           </Link>
         </div>
         <div className="buttons">
-          {!isAuth && (
+          {!user && (
             <>
               <CustButton
-                className="btn btn-primary "
-                buttonValue="Login"
-                type="submit"
-                href="/auth/login"
-              />
-              <CustButton
-                className="btn btn-primary"
+                className="bttn "
                 buttonValue="Register"
                 type="submit"
                 href="/auth/register"
               />
+              <CustButton
+                className="bttn "
+                buttonValue="Login"
+                type="submit"
+                href="/auth/login"
+              />
             </>
           )}
 
-          {isAuth && (
+          {user && (
             <>
               <CustButton
-                className="btn btn-primary "
-                buttonValue="Logout"
-                
+                className={(user.role) ? "bttn bg-purple-500" : "bttn bg-red-500"}
+                buttonValue="Admin"
                 type="submit"
-                onClick={() => signOut() }
+                href="/admin"
+                onClick={""}
+              />
+              <CustButton
+                className="bttn "
+                buttonValue="Profile"
+                type="submit"
+                href="/profile"
+                onClick={""}
+              />
+              <CustButton
+                className="bttn "
+                buttonValue="Logout"
+                type="submit"
+                onClick={() => signOut()}
               />
             </>
           )}

@@ -45,7 +45,6 @@ const Sign_in = (props) => {
         }
       });
     console.log(isAuth);
-    console.log(user);
 
     // altogic.auth.signOut().then((value) => {console.log(value)});
 
@@ -84,7 +83,7 @@ const Sign_in = (props) => {
 
               <div className="submit">
                 <CustButton
-                  className="btn pl-5 pr-5"
+                  className="bttn pl-5 pr-5"
                   loading={loading}
                   buttonValue="Sign In"
                   type="submit"

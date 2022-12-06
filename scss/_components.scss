@@ -1,27 +1,27 @@
-#header{
+#header {
   padding: 10px 16px;
   background: $header-bg;
   color: #f1f1f1;
 
-  .header-container{
+  .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  .logo{
+  .logo {
     font-size: 18px;
     font-weight: bold;
   }
 
-  .buttons{
+  .buttons {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 180px;
+    // width: 180px;
   }
 
-  .btn{
+  .bttn {
     background-color: $secondary-color;
     color: white;
     padding: 8px 16px;
@@ -29,22 +29,20 @@
     text-decoration: none;
     font-size: 17px;
     border: none;
-
-    &:hover{
-      background-color: darken($secondary-color, 10%);
+    margin: 8px;
+    &:hover {
+      // background-color: darken($secondary-color, 10%);
+      filter: brightness(80%);
     }
 
-    &:active{
-      background-color: darken($secondary-color, 20%);
+    &:active {
+      filter: brightness(60%);
+      // background-color: darken($secondary-color, 20%);
     }
   }
 }
 
-#signup{
-
-
-  
-  
+#signup {
 }
 
 #footer {
@@ -55,6 +53,5 @@
   bottom: 0;
   width: 100%;
   height: 75px; /* Height of the footer */
-text-align: center;
-
+  text-align: center;
 }

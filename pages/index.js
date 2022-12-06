@@ -1,17 +1,30 @@
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
-import { Routes, Route, Link} from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Landing from "./landing";
 import { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
+import MyApp from "./_app";
+import ReactDOM from 'react-dom'
 export default function Home() {
 
+// return (
+
+  // ReactDOM.render(
+  //   <React.StrictMode>
+  //     <BrowserRouter>
+  //       <MyApp />
+  //     </BrowserRouter>
+  //   </React.StrictMode>
+  // )
+// );
 
 
-  const [column, setColumn] = useState([]);
+  // const [column, setColumn] = useState([]);
 
   return (
-    <div className="container">
+    <><div className="container">
 
       <main className="center">
         <h1 className="title">
@@ -21,15 +34,14 @@ export default function Home() {
         <p className="description">
           Visit site - - - {' '}
           <code className="code">
-          <a href="https://valentyn.live">HERE</a>
+            <a href="https://valentyn.live">HERE</a>
           </code>
         </p>
 
       </main>
 
-    </div>
-);
-
+    </div></>
+  );
 }
 
 // const Navigation = () => (
