@@ -1,55 +1,24 @@
-import Head from "next/head";
-import Image from "next/image";
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import Landing from "./landing";
-import { useState } from "react";
-import { BrowserRouter } from "react-router-dom";
-import MyApp from "./_app";
-import ReactDOM from 'react-dom'
+
 export default function Home() {
 
-// return (
-
-  // ReactDOM.render(
-  //   <React.StrictMode>
-  //     <BrowserRouter>
-  //       <MyApp />
-  //     </BrowserRouter>
-  //   </React.StrictMode>
-  // )
-// );
-
-
-  // const [column, setColumn] = useState([]);
-
   return (
-    <><div className="container">
+    <>
+      <div className="container">
+        <main className="center">
+          <h1 className="title">
+            Welcome to <a href="https://valentyn.live">__!</a>
+          </h1>
 
-      <main className="center">
-        <h1 className="title">
-          Welcome to <a href="https://valentyn.live">__!</a>
-        </h1>
-
-        <p className="description">
-          Visit site - - - {' '}
-          <code className="code">
-            <a href="https://valentyn.live">HERE</a>
-          </code>
-        </p>
-
-      </main>
-
-    </div></>
+          <p className="description">
+            Visit site - - -{" "}
+            <code className="code">
+              <a href="https://valentyn.live">HERE</a>
+            </code>
+          </p>
+        </main>
+      </div>
+    </>
   );
 }
 
-// const Navigation = () => (
-//   <nav>
-//     <Link to="/login">Landing</Link>
-//     <Link to="/home">Home</Link>
-//     <Link to="/dashboard">Dashboard</Link>
-//     <Link to="/analytics">Analytics</Link>
-//     <Link to="/admin">Admin</Link>
-//   </nav>
-// );

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import CustButton from "../ui/Button";
 import { useAuth } from "../../context/StateContext";
-import altogic from "../../helpers/client";
+
 function Header() {
   const { user, isAuth, setIsAuth, signOut } = useAuth();
 

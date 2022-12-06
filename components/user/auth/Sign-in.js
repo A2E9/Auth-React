@@ -3,8 +3,7 @@ import { useRef, useState } from "react";
 import altogic from "../../../helpers/client";
 import { useRouter } from "next/router";
 import CustButton from "../../ui/Button";
-import toast, { Toaster } from "react-hot-toast";
-import ErrorMessage from "../../ui/ErrorMessage";
+import toast from "react-hot-toast";
 import { useAuth } from "../../../context/StateContext";
 
 const Sign_in = (props) => {

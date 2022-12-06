@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Landing = () => {
-  // const [column, setColumn] = useState([]);
 
   return (
     <><div className="container">
